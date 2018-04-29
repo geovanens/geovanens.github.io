@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <link type="text/css" rel="stylesheet" media="screen" href="style.css"/>
+  <title>Mural Projeto de Software</title>
+</head>
+<body>
+
+  <div id="header">
+	  <div id="header-content">
+	  	<h1>Mural Projeto de Software</h1>
+	  </div>
+  </div>
+
+  <div id="barra-lateral">
+  	<div id="content-barra-lateral">
+        <div id="content-send-message">
+          <div id="send-message">
+            <h2>Enviar Mensagem</h2>
+          </div>
+
+          <div id="form-message">
+            <input type="text" id="title" placeholder="Título"/>
+            <textarea type="text" placeholder="Mensagem" id="msg"></textarea>
+            <input type="text" id="author" placeholder="Autor"/>
+            <button id="send-button" onclick="enviarmsg()">Enviar</button>
+          </div>
+        </div>
+
+        <div id="content-search-mensagem">
+          <div id="search-message">
+            <h2>Buscar Mensagem</h2>
+          </div>
+          <div id="form-busca">
+            <input type="text" name="busca" id="buscando-mensagens">
+            <button id="search-button" onclick="buscar_mensagens()">Buscar</button>
+          </div>
+        </div>
+
+        <div id="content-delete-mensagem">
+          <div id="delete-message">
+            <h2>Apagar Mensagem</h2>
+          </div>
+        </div>
+        <div id="content-suas-mensagens">
+          <div id="suas-mensagens">
+            <button id="btn-suas-mensagens" onclick="suas_mensagens()">Suas Mensagens</button>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div id="espaco-mensagens"> 
+    <div id="box-mensagens">
+
+      <div id="header-mensagens">
+        <h2>Mensagens</h2>
+      </div>
+
+      <div>
+        <div id="listagem"></div>
+      </div>
+  </div>
+    </div>  
+
+  <script src="client.js"></script>
+</body>
+
+</html>

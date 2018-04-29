@@ -1,0 +1,120 @@
+#header {
+  background: grey;
+  width: 99%;
+}
+
+/*===========================================*/
+#header-content {
+  text-align: center;
+  background: grey;
+}
+
+#header-content h1 {
+  color: white;
+  text-align: center;
+  font-family: 'Arial', regular;
+}
+/*===========================================*/
+/*===========================================*/
+#barra-lateral{
+  width:35%;
+  float:left;
+}
+
+#content-barra-lateral{
+  width:95%;
+}
+
+#content-barra-lateral h2 {
+  font-family: "Arial";
+  color: white;
+  margin: auto;
+}
+
+#send-message, #search-message, #delete-message {
+  background: grey;
+  font-family: "Arial";
+  padding: 10px;
+
+  -moz-border-radius:7px;
+  -webkit-border-radius:7px;
+  border-radius:7px;
+}
+
+#form-message, #form-busca {
+  background: #cecccc;
+  padding: 2px;
+  border: 10px;
+  margin-bottom: 10px;  
+  -moz-border-radius:7px;
+  -webkit-border-radius:7px;
+  border-radius:7px;
+}
+
+#form-message input , #form-busca input {
+  width: 85%;
+  margin: 10px;
+}
+
+#form-message textarea {
+  width: 85%;
+  height: 50px;
+  margin: 10px;
+}
+
+#form-message button, #form-busca button {
+  margin: 10px;
+}
+
+#content-suas-mensagens {
+  padding: 2px;
+  border: 10px;
+  margin-bottom: 15px;
+}
+
+/*===========================================*/
+/*===========================================*/
+#espaco-mensagens {
+  width:64%;
+  height: 500px;
+  float:left;
+  border-left: 1px solid #666;
+  position: relative;
+}
+
+#box-mensagens {
+  width: 97%;
+  float: right;
+  height: 100%;
+  overflow: auto;
+}
+
+#header-mensagens {
+  background: grey;
+  font-family: "Arial";
+  margin: auto;
+  padding: 10px;
+  width: 95%;
+
+  -moz-border-radius:7px;
+  -webkit-border-radius:7px;
+  border-radius:7px;
+}
+
+#header-mensagens h2 {
+  margin: auto;
+  color: white;
+}
+
+#msg-content-div {
+  background:#cecccc;
+  margin: 10px;
+  padding:5px;
+
+  -moz-border-radius:7px;
+  -webkit-border-radius:7px;
+  border-radius:7px;
+}
+
+
+/*===========================================*/
