@@ -2,6 +2,8 @@ const listagem = document.getElementById('listagem');
 const titulo = document.getElementById('title');
 const mensagem = document.getElementById('msg');
 const autor = document.getElementById('author');
+const usuario = document.getElementById("user");
+const senha = document.getElementById("passwd");
 const busca_msgs = document.getElementById('buscando-mensagens');
 
 let mensagens = [];
@@ -27,7 +29,7 @@ function update_view(update_mensagens) {
 				<p>Em ${new Date(e.created_at).toLocaleDateString()} às ${new Date(e.created_at).toLocaleTimeString("pt-BR")}</p>
 			</small>`;
 
-		if (e.frontend === "gsilva") {
+		if (e.frontend === usuario.value) {
 			corpo_msg += `<button id="delete-msg" onclick="deletar_mensagens('${e.id}')">X</button>`
 		};
 
@@ -37,7 +39,7 @@ function update_view(update_mensagens) {
 		);
 
 		
-	listagem.innerHTML = itens.reverse().join("\n");
+	listagem.innerHTML = itens.join("\n");
 }
 
 function enviarmsg() {
@@ -45,7 +47,7 @@ function enviarmsg() {
 		title:titulo.value, 
         msg:mensagem.value, 
         author:autor.value, 
-        credentials:"gsilva:geoprofsw"
+		credentials:`${usuario.value}:${senha.value}`
 	};
 	const corpo = JSON.stringify(dados);
 	fetch('http://150.165.85.16:9900/api/msgs', { method: 'POST', body: corpo});
@@ -66,7 +68,7 @@ function buscar_mensagens() {
 }
 
 function deletar_mensagens(id) {
-	const corpo = JSON.stringify({credentials: "gsilva:geoprofsw"});
+	const corpo = JSON.stringify(credenciais);
 	console.log("deletando " + id)
     fetch(`http://150.165.85.16:9900/api/msgs/${id}`, {method:'DELETE', body: corpo})
     .then(function () {
@@ -75,7 +77,7 @@ function deletar_mensagens(id) {
 }
 
 function suas_mensagens() {
-	let find = mensagens.filter(e => e.frontend === "gsilva")
+	let find = mensagens.filter(e => e.frontend === usuario.value)
 	update_view(find);
 }
 
