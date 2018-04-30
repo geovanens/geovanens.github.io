@@ -21,6 +21,16 @@
   float:left;
 }
 
+#welcome {
+  width: 95%;
+}
+
+#welcome p {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
 #login-header {
   width: 25%;
   margin: auto
@@ -111,6 +121,21 @@
   border-radius:7px;
 }
 
+#navbar nav {
+  width: 75%;
+  margin: auto;
+}
+
+#navbar button {
+  background: grey;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+  font-size: 20px;
+  color: rgb(253, 253, 253);
+  border: none;
+  cursor: pointer;
+}
+
 #header-mensagens h2 {
   margin: auto;
   color: white;
@@ -128,3 +153,8 @@
 
 
 /*===========================================*/
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+}
