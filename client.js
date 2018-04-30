@@ -4,7 +4,9 @@ const mensagem = document.getElementById('msg');
 const autor = document.getElementById('author');
 const usuario = document.getElementById("user");
 const senha = document.getElementById("passwd");
-const busca_msgs = document.getElementById('buscando-mensagens');
+const busca_msgs = document.getElementById('inputsearch');
+
+let logado = false;
 
 let actual_view = "home";
 
@@ -18,7 +20,7 @@ function get_messages() {
 	});
 }
 
-function update_view(update_mensagens) {
+function update_view(update_mensagens=mensagens) {
 	const itens = update_mensagens.map(function (e) {
 		var corpo_msg = `
 		<div id="msg-content-div">
@@ -99,10 +101,22 @@ function suas_mensagens() {
 	actual_view = "suas-mensagens";
 }
 
+function pressEnter () {
+	if (window.event.keyCode == 13){   
+		buscar_mensagens();
+  	}
+}
+
+function opensearch () {
+	const entrada = document.getElementById("inputsearch");
+
+	entrada.hidden ? entrada.hidden = false : entrada.hidden = true;
+}
+
 fetch('http://150.165.85.16:9900/api/msgs')
 	.then(r => r.json())
 	.then(data => {
 		Object.assign(mensagens, data);
 		mensagens.sort(function(a,b) {return new Date(b.created_at).getTime() - new Date(a.created_at).getTime()});
 		update_view(mensagens);
-	});
+});

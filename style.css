@@ -21,6 +21,16 @@
   float:left;
 }
 
+#login-header {
+  width: 25%;
+  margin: auto
+}
+
+#content-login {
+  width: 50%;
+  margin: auto
+}
+
 #content-barra-lateral{
   width:95%;
 }
@@ -31,7 +41,7 @@
   margin: auto;
 }
 
-#send-message, #search-message, #delete-message {
+#send-message {
   background: grey;
   font-family: "Arial";
   padding: 10px;
@@ -76,7 +86,7 @@
 /*===========================================*/
 #espaco-mensagens {
   width:64%;
-  height: 500px;
+  height: 550px;
   float:left;
   border-left: 1px solid #666;
   position: relative;
@@ -89,7 +99,7 @@
   overflow: auto;
 }
 
-#header-mensagens {
+#navbar {
   background: grey;
   font-family: "Arial";
   margin: auto;

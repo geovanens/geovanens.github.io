@@ -7,7 +7,7 @@
   <title>Mural Projeto de Software</title>
 </head>
 <body>
-
+  <div id="form-login"></div>
   <div id="header">
 	  <div id="header-content">
 	  	<h1>Mural Projeto de Software</h1>
@@ -15,6 +15,30 @@
   </div>
 
   <div id="barra-lateral">
+    <div id="welcome">
+      <p>
+          Seja bem vindo ao Mural da disciplina Projeto de Software da UFCG.
+          Este site é um mural simples em que qualquer aluno cadastrado na disciplina 
+          pode postar mensagens livremente.
+      </p>
+      <p>
+        Para que você possa enviar mensagens é necessário inserir seu usuario e senha 
+        cadastrados no form abaixo. 
+        O "login" é valido apenas enquanto a pagina não for recarregada.
+      </p>
+    </div>
+    <div id="login">
+        <div id="login-header">
+            <h2>Login</h2>
+          </div>
+        <div id="content-login">
+          <div id="form-login">
+            <input type="text" id="user" placeholder="Usuario"/>
+            <input type="password" id="passwd" placeholder="Senha"/>
+          </div>
+        </div>
+    </div>
+    <br/>
   	<div id="content-barra-lateral">
         <div id="content-send-message">
           <div id="send-message">
@@ -25,30 +49,7 @@
             <input type="text" id="title" placeholder="Título"/>
             <textarea type="text" placeholder="Mensagem" id="msg"></textarea>
             <input type="text" id="author" placeholder="Autor"/>
-            <input type="text" id="user" placeholder="Usuario"/>
-            <input type="password" id="passwd" placeholder="Senha"/>
             <button id="send-button" onclick="enviarmsg()">Enviar</button>
-          </div>
-        </div>
-
-        <div id="content-search-mensagem">
-          <div id="search-message">
-            <h2>Buscar Mensagem</h2>
-          </div>
-          <div id="form-busca">
-            <input type="text" name="busca" id="buscando-mensagens">
-            <button id="search-button" onclick="buscar_mensagens()">Buscar</button>
-          </div>
-        </div>
-
-        <div id="content-delete-mensagem">
-          <div id="delete-message">
-            <h2>Apagar Mensagem</h2>
-          </div>
-        </div>
-        <div id="content-suas-mensagens">
-          <div id="suas-mensagens">
-            <button id="btn-suas-mensagens" onclick="suas_mensagens()">Suas Mensagens</button>
           </div>
         </div>
     </div>
@@ -56,11 +57,14 @@
 
   <div id="espaco-mensagens"> 
     <div id="box-mensagens">
-
-      <div id="header-mensagens">
-        <h2>Mensagens</h2>
+      <div id="navbar">
+          <nav>
+              <button id="home-messages" onclick="update_view()">Mensagens</button>
+              <button id="btn-suas-mensagens" onclick="suas_mensagens()">Suas Mensagens</button>
+              <button id="open-search" onclick="opensearch()">Pesquisar Mensagens</button>
+              <input id="inputsearch" onkeydown="pressEnter()" hidden=true/>
+            </nav>
       </div>
-
       <div>
         <div id="listagem"></div>
       </div>
