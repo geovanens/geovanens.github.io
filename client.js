@@ -6,13 +6,15 @@ const usuario = document.getElementById("user");
 const senha = document.getElementById("passwd");
 const busca_msgs = document.getElementById('buscando-mensagens');
 
+let actual_view = "home";
+
 let mensagens = [];
 function get_messages() {
 	fetch('http://150.165.85.16:9900/api/msgs')
 	.then(r => r.json())
 	.then(data => {
 		Object.assign(mensagens, data);
-		update_view(mensagens);
+		mensagens.sort(function(a,b) {return new Date(b.created_at).getTime() - new Date(a.created_at).getTime()});
 	});
 }
 
@@ -52,36 +54,55 @@ function enviarmsg() {
 	const corpo = JSON.stringify(dados);
 	fetch('http://150.165.85.16:9900/api/msgs', { method: 'POST', body: corpo});
 	get_messages();
+	if (actual_view === "suas-mensagens") {
+		suas_mensagens();
+	}
+	else {
+		update_view(mensagens);
+	}
 	titulo.value = "";
 	mensagem.value = "";
 	autor.value = "";
 }
 
 function buscar_mensagens() {
+	get_messages();
 	const value = busca_msgs.value;
-	let find = mensagens.filter(e => 
+	mensagens = mensagens.filter(e => 
 		e.title.includes(value) || e.author.includes(value) ||
 		e.msg.includes(value)
 		)
-	update_view(find);
+	update_view(mensagens);
+	actual_view = "busca";
 
 }
 
 function deletar_mensagens(id) {
-	const corpo = JSON.stringify(credenciais);
+	const corpo = JSON.stringify({credentials:`${usuario.value}:${senha.value}`});
 	console.log("deletando " + id)
     fetch(`http://150.165.85.16:9900/api/msgs/${id}`, {method:'DELETE', body: corpo})
     .then(function () {
 		suas_mensagens();
 	});
+	get_messages();
+	if (actual_view === "suas-mensagens") {
+		suas_mensagens();
+	}
+	else {
+		update_view(mensagens);
+	}
 }
 
 function suas_mensagens() {
 	let find = mensagens.filter(e => e.frontend === usuario.value)
 	update_view(find);
+	actual_view = "suas-mensagens";
 }
 
-get_messages();
-
-
-
+fetch('http://150.165.85.16:9900/api/msgs')
+	.then(r => r.json())
+	.then(data => {
+		Object.assign(mensagens, data);
+		mensagens.sort(function(a,b) {return new Date(b.created_at).getTime() - new Date(a.created_at).getTime()});
+		update_view(mensagens);
+	});
