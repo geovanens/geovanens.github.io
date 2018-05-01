@@ -1,21 +1,42 @@
-#header {
-  background: grey;
-  width: 99%;
+/*-------------------------------------------*/
+
+body {
+    background-color: #3535b6;
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/*===========================================*/
-#header-content {
+/*--------------------HEADER-----------------------*/
+
+header {
+  width: 95%;
+  height: auto;
+  margin-top: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0.5em;
+}
+
+header p {
   text-align: center;
-  background: grey;
-}
-
-#header-content h1 {
+  font-family: 'Julius Sans One';font-size: 40px;
   color: white;
-  text-align: center;
-  font-family: 'Arial', regular;
 }
-/*===========================================*/
-/*===========================================*/
+
+/*-------------------CORPO------------------------*/
+
+#corpo-principal {
+    width: 95%;
+    height: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: #fff;
+    border-radius: 0.5em;
+}
+
 #barra-lateral{
   width:35%;
   float:left;
@@ -23,126 +44,150 @@
 
 #welcome {
   width: 95%;
+  margin: auto;
 }
 
 #welcome p {
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
   text-align: justify;
   text-justify: inter-word;
 }
 
-#login-header {
-  width: 25%;
-  margin: auto
+
+#cabecalho-login h2, #cabecalho-enviar-mensagem h2{
+  text-align: center;
+  color: #3535b6;
+  font-size: 20px;
+  margin-bottom: 2px;
 }
 
-#content-login {
-  width: 50%;
-  margin: auto
+#formulario-login {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
 }
 
-#content-barra-lateral{
-  width:95%;
-}
-
-#content-barra-lateral h2 {
-  font-family: "Arial";
-  color: white;
+#formulario-login #usuario, #formulario-login #senha {
+  width: 40%;
   margin: auto;
 }
 
-#send-message {
-  background: grey;
-  font-family: "Arial";
-  padding: 10px;
-
-  -moz-border-radius:7px;
-  -webkit-border-radius:7px;
-  border-radius:7px;
+#confirma-login {
+  background-color: #3535b6;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
 }
 
-#form-message, #form-busca {
-  background: #cecccc;
-  padding: 2px;
-  border: 10px;
-  margin-bottom: 10px;  
-  -moz-border-radius:7px;
-  -webkit-border-radius:7px;
-  border-radius:7px;
+#formulario-login input {
+  width: 45%;
 }
 
-#form-message input , #form-busca input {
-  width: 85%;
-  margin: 10px;
+#formulario-envio-mensagem {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
 }
 
-#form-message textarea {
-  width: 85%;
-  height: 50px;
-  margin: 10px;
+#formulario-envio-mensagem input {
+  width: 100%;
 }
 
-#form-message button, #form-busca button {
-  margin: 10px;
+#formulario-envio-mensagem textarea {
+  width: 99%;
 }
 
-#content-suas-mensagens {
-  padding: 2px;
-  border: 10px;
-  margin-bottom: 15px;
+#titulo, #mensagem, #autor {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/*===========================================*/
-/*===========================================*/
-#espaco-mensagens {
+#titulo {
+  margin-bottom: 10px;
+}
+
+#mensagem {
+  margin-bottom: 6px;
+}
+
+#autor {
+  margin-bottom: 5px;
+}
+
+#botao-envio {
+  background-color: #3535b6;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;  
+  position: relative;
+  margin: auto auto auto 35%;
+}
+
+#botao-envio:hover {
+  background-color: white;
+  color: #3535b6;
+  border: 2px solid #3535b6;
+}
+
+
+/**/
+
+#opcoes {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+
+#botao-mensagens {
+  background-color: #3535b6;
+  border: none;
+  color: white;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;  
+}
+
+#botao-buscar {
+  background-color: #3535b6;
+  float: right;
+  border: none;
+  color: white;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;  
+}
+
+#campo-mensagens {
   width:64%;
-  height: 550px;
-  float:left;
+  height: 95%;
+  float: right;
   border-left: 1px solid #666;
   position: relative;
 }
 
-#box-mensagens {
-  width: 97%;
-  float: right;
-  height: 100%;
+#caixa-mensagens {
+  width: 90%;
+  height: 80%;;
+  margin: auto;
   overflow: auto;
+  border: 1px solid #666;
 }
 
-#navbar {
-  background: grey;
-  font-family: "Arial";
-  margin: auto;
-  padding: 10px;
-  width: 95%;
-
-  -moz-border-radius:7px;
-  -webkit-border-radius:7px;
-  border-radius:7px;
-}
-
-#navbar nav {
-  width: 75%;
-  margin: auto;
-}
-
-#navbar button {
-  background: grey;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bolder;
-  font-size: 20px;
-  color: rgb(253, 253, 253);
-  border: none;
-  cursor: pointer;
-}
-
-#header-mensagens h2 {
-  margin: auto;
-  color: white;
-}
-
-#msg-content-div {
-  background:#cecccc;
+#cartao-mensagem {
+  background:#8081dd;
   margin: 10px;
   padding:5px;
 
@@ -151,10 +196,66 @@
   border-radius:7px;
 }
 
+#cartao-mensagem h4 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 20px;
+  text-transform: capitalize;
+  text-decoration: underline;
+  text-align: center;
+  color: white;
+}
 
-/*===========================================*/
+#cartao-mensagem h5 {
+  font-family: cursive;
+  font-size: 18px;
+  color: white;
+  text-align: center;
+}
+
+#cartao-mensagem small {
+  font-family: cursive;
+  color: rgb(46, 45, 45);
+}
 
 .grid-container {
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-columns: 50% 50%;
+}
+
+#botao-apaga-mensagem {
+  text-decoration: none;
+  background: aqua;
+  padding: 10px;
+}
+
+/*---------------------FOOTER----------------------*/
+
+footer {
+  width: 95%;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0.5em;
+  display: block;
+}
+
+#corpo-principal p {
+  text-align: center;
+}
+
+footer p {
+  text-align: center;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+footer div {
+  color: #bbb;
+  font-size: bolder;
+  margin: 1em;
+  padding: 0 1rem;
+  text-align: center;
+
 }

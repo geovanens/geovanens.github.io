@@ -1,77 +1,81 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
+  
 <head>
-  <meta charset="UTF-8">
-  <link type="text/css" rel="stylesheet" media="screen" href="style.css"/>
-  <title>Mural Projeto de Software</title>
-</head>
-<body>
-  <div id="form-login"></div>
-  <div id="header">
-	  <div id="header-content">
-	  	<h1>Mural Projeto de Software</h1>
-	  </div>
-  </div>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" media="screen" href="style.css"/>
+    <link href='https://fonts.googleapis.com/css?family=Julius Sans One' rel='stylesheet'>
+    <title>Mural Projeto de Software</title>
+  </head>
+  
+  <body>
+    <header id="cabecalho">
+      <p>Mural Projeto Software</p>
+    </header>
+    
+    <div id="corpo-principal">
+      <div id="barra-lateral">
+          <div id="welcome">
+              <p>
+                  Seja bem vindo ao Mural da disciplina Projeto de Software da UFCG.
+                  Este site é um mural simples em que qualquer aluno cadastrado na disciplina 
+                  pode postar mensagens livremente.
+              </p>
+              <p>
+                Para que você possa enviar mensagens é necessário inserir seu usuario e senha 
+                cadastrados no form abaixo. 
+                O "login" é valido apenas enquanto a pagina não for recarregada.
+              </p>
+          </div>
+          <div id="login">
+              <div id="cabecalho-login">
+                  <h2>Login</h2>
+              </div>
+              <form id="formulario-login" action="#">
+                <input type="text" id="usuario" placeholder="Usuario" required/>
+                <input type="password" id="senha" placeholder="Senha" required/>
+                <button id="confirma-login" onclick="confirma_login()">OK</button>
+                <label id="status-login" hidden=true></label>
+              </form>
+          </div>
+          <div id="conteudo-enviar-mensagem">
+            <div id="cabecalho-enviar-mensagem">
+              <h2>Enviar Mensagem</h2>
+            </div>
+            <form id="formulario-envio-mensagem" action="#">
+              <input type="text" id="titulo" placeholder="Título" required/>
+              <textarea type="text" placeholder="Mensagem" id="mensagem" required></textarea>
+              <input type="text" id="autor" placeholder="Autor" required/>
+              <button id="botao-envio" onclick="enviar_msg()">Enviar</button>
+            </div>
+          </form>
+      </div>
+      
+      <br/>
 
-  <div id="barra-lateral">
-    <div id="welcome">
-      <p>
-          Seja bem vindo ao Mural da disciplina Projeto de Software da UFCG.
-          Este site é um mural simples em que qualquer aluno cadastrado na disciplina 
-          pode postar mensagens livremente.
-      </p>
-      <p>
-        Para que você possa enviar mensagens é necessário inserir seu usuario e senha 
-        cadastrados no form abaixo. 
-        O "login" é valido apenas enquanto a pagina não for recarregada.
-      </p>
-    </div>
-    <div id="login">
-        <div id="login-header">
-            <h2>Login</h2>
-          </div>
-        <div id="content-login">
-          <div id="form-login">
-            <input type="text" id="user" placeholder="Usuario"/>
-            <input type="password" id="passwd" placeholder="Senha"/>
-          </div>
-        </div>
-    </div>
-    <br/>
-  	<div id="content-barra-lateral">
-        <div id="content-send-message">
-          <div id="send-message">
-            <h2>Enviar Mensagem</h2>
-          </div>
-
-          <div id="form-message">
-            <input type="text" id="title" placeholder="Título"/>
-            <textarea type="text" placeholder="Mensagem" id="msg"></textarea>
-            <input type="text" id="author" placeholder="Autor"/>
-            <button id="send-button" onclick="enviarmsg()">Enviar</button>
-          </div>
-        </div>
-    </div>
-  </div>
-
-  <div id="espaco-mensagens"> 
-    <div id="box-mensagens">
-      <div id="navbar">
-          <nav>
-              <button id="home-messages" onclick="update_view()">Mensagens</button>
-              <button id="btn-suas-mensagens" onclick="suas_mensagens()">Suas Mensagens</button>
-              <button id="open-search" onclick="opensearch()">Pesquisar Mensagens</button>
-              <input id="inputsearch" onkeydown="pressEnter()" hidden=true/>
+      <div id="campo-mensagens">
+        <div id="cabecalho-mensagens">
+            <nav id="opcoes">
+              <button id="botao-mensagens">Mensagens</button>
+              <button id="botao-buscar">Buscar Mensagens</button>
             </nav>
+        </div>
+        <div id="caixa-mensagens">
+          <div class="grid-container" id="listagem-mensagens"></div>
+        </div>
       </div>
+    </div>
+    
+    <footer id="rodape">
       <div>
-      <div class="grid-container" id="listagem"></div>
+          By 
+          <a  target="_blank" href="https://github.com/geovanens" style="color: rgb(0, 0, 0)">Geovane Silva</a> 
+          | 
+          <a target="_blank" id="gitpages" href="https://pages.github.com/" style="color: rgb(255, 255, 255)">GitHub Pages</a>
       </div>
-  </div>
-    </div>  
+    </footer>
 
-  <script src="client.js"></script>
-</body>
+    <script src="client.js"></script>
+  </body>
 
 </html>
