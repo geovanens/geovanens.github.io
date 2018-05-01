@@ -74,8 +74,9 @@ function confirma_login () {
 					senha.disabled=true;
 					stat.hidden = true;
 					const corpo_delete = JSON.stringify({credentials:credenciais});
-					fetch(dados.url, {method:'DELETE', body: corpo_delete});
-					atualiza_listagem();
+					fetch(dados.url, {method:'DELETE', body: corpo_delete})
+					new Promise((resolve) => setTimeout(resolve, 500)).then(() => 
+					atualiza_mensagens());
 				}
 				else {
 					var erro = dados.message;
@@ -112,17 +113,17 @@ function enviar_msg() {
 		titulo.value = "";
 		mensagem.value = "";
 		autor.value = "";
+	}
+}
 
-		if (view_atual === "todas_msgs") {
-			atualiza_listagem();
-		}
-		else if (view_atual === "suas_msgs" ) {
-			atualiza_listagem(mensagens.filter(e => e.frontend === usuario.value));
-		}
-		else {
-			buscar_mensagens();
-		}
-
+function gerenciador_views () {
+	if (document.getElementById("view-mensagens").value === "0") {
+		view_atual = "todas_msgs";
+		atualiza_mensagens();
+	}
+	else {
+		view_atual = "suas_msgs";
+		atualiza_mensagens();
 	}
 }
 
