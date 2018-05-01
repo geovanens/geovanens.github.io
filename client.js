@@ -16,6 +16,15 @@ function atualiza_mensagens() {
 	.then(data => {
 		Object.assign(mensagens, data);
 		mensagens.sort(function(a,b) {return new Date(b.created_at).getTime() - new Date(a.created_at).getTime()});
+		if (view_atual === "todas_msgs") {
+			atualiza_listagem();
+		}
+		else if (view_atual === "suas_msgs" ) {
+			atualiza_listagem(mensagens.filter(e => e.frontend === usuario.value));
+		}
+		else {
+			buscar_mensagens();
+		}
 	});
 }
 
@@ -134,15 +143,6 @@ function deletar_mensagens(id) {
     fetch(`http://150.165.85.16:9900/api/msgs/${id}`, {method:'DELETE', body: corpo})
     .then(function () {
 		atualiza_mensagens();
-		if (view_atual === "todas_msgs") {
-			atualiza_listagem();
-		}
-		else if (view_atual === "suas_msgs" ) {
-			atualiza_listagem(mensagens.filter(e => e.frontend === usuario.value));
-		}
-		else {
-			buscar_mensagens();
-		}
 	});
 }
 

@@ -148,27 +148,6 @@ header p {
   margin-bottom: 10px;
 }
 
-#botao-mensagens {
-  background-color: #3535b6;
-  border: none;
-  color: white;
-  padding: 5px 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;  
-}
-
-#botao-buscar {
-  background-color: #3535b6;
-  float: right;
-  border: none;
-  color: white;
-  padding: 5px 15px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;  
-}
 
 #campo-mensagens {
   width:64%;
