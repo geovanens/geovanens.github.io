@@ -56,13 +56,13 @@
       <div id="campo-mensagens">
         <div id="cabecalho-mensagens">
             <nav id="opcoes">
-              <label for="">Mensagens</label>
+              <label>Mensagens</label>
               <select name="" id="view-mensagens" onchange="gerenciador_views()">
                 <option value="0">Todas</option>
                 <option value="1">Suas Mensagens</option>
               </select>
-              <label id="botao-buscar">Buscar</label>
-              <input type="text" name="" id="" placeholder="insira aqui o token">
+              <label id="label-buscar">Buscar</label>
+              <input type="text" id="campo-busca" placeholder="insira aqui o token" onkeydown="pressEnter()">
             </nav>
         </div>
         <div id="caixa-mensagens">

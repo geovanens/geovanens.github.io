@@ -4,7 +4,7 @@ const mensagem = document.getElementById('mensagem');
 const autor = document.getElementById('autor');
 const usuario = document.getElementById("usuario");
 const senha = document.getElementById("senha");
-/*const busca_msgs = document.getElementById('inputsearch');*/
+const campo_busca = document.getElementById('campo-busca');
 
 var view_atual = 'todas_msgs';
 
@@ -128,14 +128,13 @@ function gerenciador_views () {
 }
 
 function buscar_mensagens() {
-	atualiza_mensagens();
-	const value = busca_msgs.value;
-	mensagens = mensagens.filter(e => 
+	const value = campo_busca.value;
+	const filtradas = mensagens.filter(e => 
 		e.title.includes(value) || e.author.includes(value) ||
 		e.msg.includes(value)
 		)
-	atualiza_listagem(mensagens);
-	actual_view = "busca";
+	view_atual = "busca";
+	atualiza_listagem(filtradas);
 
 }
 
@@ -147,37 +146,11 @@ function deletar_mensagens(id) {
 	});
 }
 
-/*function suas_mensagens() {
-	const btn = document.getElementById("btndeleteall");
-	btn.hidden = false;
-	let find = mensagens.filter(e => e.frontend === usuario.value)
-
-}*/
-
-function deleteall() {
-	fetch('http://150.165.85.16:9900/api/msgs')
-	.then(r => r.json())
-	.then(data => {
-		Object.assign(mensagens, data);
-		var minhas_mensagens = mensagens.filter(function (e) { if (e.frontend === "gsilva") {return e};})
-
-		cdelete = JSON.stringify({credentials:`gsilva:geoprofsw`});
-
-		minhas_mensagens.forEach(e => fetch(e.url, {method: "DELETE", body: cdelete}));
-	});
-	suas_mensagens();
-}
-
 function pressEnter () {
 	if (window.event.keyCode == 13){   
+		console.log("buscando " + campo_busca.value );
 		buscar_mensagens();
   	}
-}
-
-function opensearch () {
-	const entrada = document.getElementById("inputsearch");
-
-	entrada.hidden ? entrada.hidden = false : entrada.hidden = true;
 }
 
 fetch('http://150.165.85.16:9900/api/msgs')
